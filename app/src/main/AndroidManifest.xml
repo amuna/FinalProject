@@ -20,6 +20,8 @@
             android:name=".BarberProfile"
             android:label="@string/title_activity_barber_profile"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".UserProfile"
+            android:label="Profile"></activity>
     </application>
 
 </manifest>
