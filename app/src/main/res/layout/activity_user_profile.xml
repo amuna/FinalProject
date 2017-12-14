@@ -75,7 +75,7 @@
         android:layout_alignEnd="@+id/fnamelbl"
         android:layout_below="@+id/pclbl"
         android:layout_marginTop="49dp"
-        tools:text="SAVE" />
+        android:text="SAVE" />
 
     <Button
         android:id="@+id/editbtn"
@@ -83,8 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/savebtn"
         android:layout_alignBottom="@+id/savebtn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="63dp"
+        android:layout_alignStart="@+id/pctxt"
+        android:layout_marginStart="62dp"
         android:text="EDIT" />
 
     <Button
@@ -94,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:onClick="backHome"
         android:text="Home" />
 
 </RelativeLayout>
