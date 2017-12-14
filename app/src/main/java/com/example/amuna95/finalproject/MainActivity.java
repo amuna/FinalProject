@@ -1,6 +1,7 @@
 package com.example.amuna95.finalproject;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
@@ -79,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         //**********Pranav***********
+        //when profile button is pressed activity changes to userprofile
+        final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
+        Button bt;
+        bt = (Button)findViewById(R.id.profilebtn);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushSoundMP.start();
+                Intent i = new Intent(MainActivity.this, UserProfile.class);
+                startActivity(i);
+            }
+        });
 
         //**********Pranav***********
     }
@@ -142,10 +155,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     //**********Pranav***********
-    public void toProfile(View view){
-        Intent i = new Intent(this, UserProfile.class);
-        startActivity(i);
-    }
+    //button click sound
+
     //**********Pranav***********
 
 }

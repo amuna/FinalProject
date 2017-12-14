@@ -11,6 +11,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -26,11 +27,6 @@ public class UserProfile extends AppCompatActivity {
 
     private LocationManager locationManager;
 
-    public void backHome(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +40,18 @@ public class UserProfile extends AppCompatActivity {
         verifyGeolocationPermission();
         // check to ensure that geolocation is enabled
         // request updates
+
+        final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
+        Button bt;
+        bt = (Button)findViewById(R.id.homebtn);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushSoundMP.start();
+                Intent i = new Intent(UserProfile.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
