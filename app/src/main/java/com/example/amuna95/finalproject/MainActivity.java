@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         //**********Ethan***********
 
 
-
+/*
         //**********Pranav***********
         //when profile button is pressed activity changes to userprofile
         final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //**********Pranav***********
+        */
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         inflater.inflate(R.menu.login_menu, menu);
@@ -137,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.logOut:
 
+                break;
+            case R.id.profile:
+                Intent i = new Intent(MainActivity.this, UserProfile.class);
+                startActivity(i);
                 break;
             default:
 

@@ -40,7 +40,7 @@ public class UserProfile extends AppCompatActivity {
         verifyGeolocationPermission();
         // check to ensure that geolocation is enabled
         // request updates
-
+/*
         final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
         Button bt;
         bt = (Button)findViewById(R.id.homebtn);
@@ -52,7 +52,7 @@ public class UserProfile extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+*/
     }
 
     private static final int REQUEST_GEOLOCATION_PERMS = 1;
