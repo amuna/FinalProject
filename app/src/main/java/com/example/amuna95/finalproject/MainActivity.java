@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.amuna95.finalproject.R.id.parent;
 import static com.example.amuna95.finalproject.R.styleable.Toolbar;
@@ -30,12 +31,15 @@ Created by:
  */
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Barber> barberList = new ArrayList<Barber>();
-    BarberArrayAdapter adapter;
-    ListView listView;
+    //Ahmed
+    private ArrayList<Barber> barberList = new ArrayList<Barber>();
+    private BarberArrayAdapter adapter;
+    private ListView listView;
+    private BarberDBHelper helper;
     // paljor
     private MenuInflater inflater;
     private int dynMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +60,14 @@ public class MainActivity extends AppCompatActivity {
         * */
 
         //**********Ahmed***********
+        helper = new BarberDBHelper(this);
+        helper.sampleBarbers();
+        barberList = helper.getAllBarbers();
+
         listView = (ListView)findViewById(R.id.ListView);
         adapter = new BarberArrayAdapter(this, barberList);
         listView.setAdapter(adapter);
 
-        sampleBarber();
         adapter.notifyDataSetChanged();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,25 +104,25 @@ public class MainActivity extends AppCompatActivity {
         */
     }
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         inflater.inflate(R.menu.login_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
 
-    public void sampleBarber() {
-        Barber barber1 = new Barber("Ahmed Naeem", 5.0f, "29 Portelli Cres", "Ajax", "Shop n' Cuts");
-        Barber barber2 = new Barber("Jazz Cartier", 3.5f, "13 Habbourd Ave", "Oshawa", "Jazz Store");
-        Barber barber3 = new Barber("Lupe Fiasco", 2.2f, "695 Honololo Cres", "Ajax", "Jhoor Shop");
-        barberList.add(barber1);
-        barberList.add(barber2);
-        barberList.add(barber3);
-    }
-
-
-
     //**********Ahmed***********
-
+    public void updateContactList() {
+        /*
+        barberList = BarberDBHelper.getAllBarbers();
+        adapter = new BarberArrayAdapter(this, barberList);
+        listView.setAdapter(adapter);
+        */
+    }
     //**********Ahmed***********
 
 
