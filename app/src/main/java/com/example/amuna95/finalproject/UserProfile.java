@@ -33,7 +33,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         setupGeolocation();
-    };
+    }
 
     private void setupGeolocation() {
         // check to ensure I have permission
@@ -93,7 +93,7 @@ public class UserProfile extends AppCompatActivity {
 
         // check if geolocation is enabled in settings
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            // TODO:  Request location updates
+
             requestLocationUpdates();
         } else {
             // show the settings app to let the user enable it

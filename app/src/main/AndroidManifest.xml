@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amuna95.finalproject">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -20,7 +22,8 @@
             android:name=".BarberProfile"
             android:label="@string/title_activity_barber_profile" />
         <activity android:name=".SigninActivity" />
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity"/>
+        <activity android:name=".UserProfile"/>
     </application>
 
 </manifest>
