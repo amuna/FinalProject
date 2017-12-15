@@ -24,7 +24,7 @@
         android:layout_below="@+id/lblName"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/lblDescription"
@@ -33,7 +33,7 @@
         android:layout_alignStart="@+id/fldDescription"
         android:layout_below="@+id/fldName"
         android:layout_marginTop="14dp"
-        android:text="Description" />
+        android:text="@string/description" />
 
     <EditText
         android:id="@+id/fldDescription"
@@ -44,7 +44,7 @@
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/lblPhone"
@@ -53,7 +53,7 @@
         android:layout_alignStart="@+id/fldDescription"
         android:layout_below="@+id/fldDescription"
         android:layout_marginTop="14dp"
-        android:text="Phone" />
+        android:text="@string/phone" />
 
     <EditText
         android:id="@+id/fldPhone"
@@ -63,7 +63,7 @@
         android:layout_below="@+id/lblPhone"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Phone" />
+        android:text="@string/phone" />
 
     <TextView
         android:id="@+id/lblStoreName"
@@ -72,7 +72,7 @@
         android:layout_alignStart="@+id/fldStoreName"
         android:layout_below="@+id/fldPhone"
         android:layout_marginTop="18dp"
-        android:text="Store Name" />
+        android:text="@string/store_name" />
 
     <EditText
         android:id="@+id/fldStoreName"
@@ -82,7 +82,7 @@
         android:layout_below="@+id/lblStoreName"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="StoreName" />
+        android:text="@string/storename" />
 
     <TextView
         android:id="@+id/lblAddress"
@@ -91,7 +91,7 @@
         android:layout_alignStart="@+id/fldStoreName"
         android:layout_below="@+id/fldStoreName"
         android:layout_marginTop="11dp"
-        android:text="Address" />
+        android:text="@string/address" />
 
     <EditText
         android:id="@+id/fldAddress"
@@ -110,7 +110,7 @@
         android:layout_alignStart="@+id/fldAddress"
         android:layout_below="@+id/fldAddress"
         android:layout_marginTop="12dp"
-        android:text="City" />
+        android:text="@string/city" />
 
     <EditText
         android:id="@+id/fldCity"
@@ -120,7 +120,7 @@
         android:layout_below="@+id/lblCity"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="City" />
+        android:text="@string/city" />
 
     <TextView
         android:id="@+id/lblPostalCode"
@@ -129,7 +129,7 @@
         android:layout_alignStart="@+id/fldCity"
         android:layout_below="@+id/fldCity"
         android:layout_marginTop="13dp"
-        android:text="PostalCode" />
+        android:text="@string/postalcode" />
 
     <EditText
         android:id="@+id/fldPostalCode"
@@ -139,7 +139,7 @@
         android:layout_below="@+id/lblPostalCode"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Postal Code" />
+        android:text="@string/postal_code" />
 
     <Button
         android:id="@+id/btnSave"
@@ -149,5 +149,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="24dp"
         android:onClick="onClickSave"
-        android:text="Save" />
+        android:text="@string/save" />
 </RelativeLayout>

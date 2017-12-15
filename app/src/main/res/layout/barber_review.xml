@@ -28,7 +28,7 @@
         android:layout_below="@+id/ratingBar2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="Rate?"
+        android:text="@string/rate"
         android:onClick="onClickRate"/>
 
 </RelativeLayout>

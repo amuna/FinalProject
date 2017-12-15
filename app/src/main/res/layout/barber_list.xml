@@ -31,14 +31,14 @@
         android:layout_alignTop="@+id/imgBarber"
         android:layout_marginStart="23dp"
         android:layout_toEndOf="@+id/imgBarber"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/fldPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:text="TextView"
+        android:text="@string/textview"
         android:layout_alignBaseline="@+id/tabName"
         android:layout_alignBottom="@+id/tabName"
         android:layout_toEndOf="@+id/ratingBar" />
@@ -47,7 +47,7 @@
         android:id="@+id/lblAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:layout_below="@+id/fldPhone"
         android:layout_alignStart="@+id/fldPhone" />
 
@@ -55,7 +55,7 @@
         android:id="@+id/lblCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:layout_below="@+id/lblAddress"
         android:layout_alignStart="@+id/lblAddress" />
 
@@ -66,7 +66,7 @@
         android:layout_above="@+id/lblCity"
         android:layout_marginStart="15dp"
         android:layout_toEndOf="@+id/fldPhone"
-        android:text="TextView"
+        android:text="@string/textview"
         android:visibility="gone"/>
 
 </RelativeLayout>
