@@ -55,16 +55,9 @@ public class MainActivity extends AppCompatActivity {
         inflater = getMenuInflater();
         dynMenu = R.menu.menu;
 
-        /*
-        * if user is already logged in
-        * dynMenu = R.menu.logout_menu
-        * */
-
-
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
         helper.sampleBarbers();
-        //helper.sampleBarbers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -120,6 +113,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(helper.getLoginStatus()){
+            //  User logged in
+            Toast.makeText(this,"Logged in", Toast.LENGTH_SHORT).show();
+            dynMenu = R.menu.logout_menu;
+        }
+        Toast.makeText(this,"Logged out", Toast.LENGTH_SHORT).show();
     }
 
     @Override

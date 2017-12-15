@@ -85,16 +85,17 @@ public class SigninActivity extends AppCompatActivity {
         }
         progressDialog.setMessage("Signing in...");
         progressDialog.show();
-
+        boolean flag = false;
         if(helper.login(userEmail, userPass)){
             //  User log in successful
-            progressDialog.dismiss();
             Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show();
+            flag = true;
         }
         else{
             progressDialog.dismiss();
-            Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT).show();
             //  login failed
         }
+
     }
 }
