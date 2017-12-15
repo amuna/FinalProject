@@ -27,6 +27,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
     private static int currentUser;
     private static final int BARBER = 0;
     private static final int USER = 1;
+    private static String EMAIL=null;
     private static final int noUSER = 13;
     static final int DATABASE_VERSION = 33;
     static final String TABLE = "Person";
@@ -290,11 +291,16 @@ public class BarberDBHelper extends SQLiteOpenHelper {
                     else if(cursor.getString(2).equals("U")){
                         currentUser = USER;
                     }
+                    EMAIL = userEmail;
                     return true;
                 }
             }while (cursor.moveToNext());
         }
         return false;
+    }
+
+    public String getEMAIL(){
+        return EMAIL;
     }
 
     public ArrayList<String> getCustomers(){
@@ -329,6 +335,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
     public boolean logout(){
         if(getLoginStatus()){
             setLoginStatus(false);
+            EMAIL = null;
             return true;
         }
         return false;

@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/section_label"
         android:layout_marginTop="18dp"
-        android:text="Name" />
+        android:text="@string/name" />
 
     <TextView
         android:id="@+id/tabDescription"
@@ -30,7 +30,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tabName"
         android:layout_marginTop="25dp"
-        android:text="Description" />
+        android:text="@string/description" />
 
     <TextView
         android:id="@+id/lblStore"
@@ -39,7 +39,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tabDescription"
         android:layout_marginTop="22dp"
-        android:text="Store Name" />
+        android:text="@string/store_name" />
 
     <TextView
         android:id="@+id/lblAddress"
@@ -48,7 +48,7 @@
         android:layout_below="@+id/lblStore"
         android:layout_marginTop="19dp"
         android:layout_toEndOf="@+id/section_label"
-        android:text="Address" />
+        android:text="@string/address" />
 
     <TextView
         android:id="@+id/lblCity"
@@ -57,7 +57,7 @@
         android:layout_below="@+id/lblAddress"
         android:layout_marginTop="19dp"
         android:layout_toEndOf="@+id/section_label"
-        android:text="City" />
+        android:text="@string/city" />
 
     <TextView
         android:id="@+id/lblPostalCode"
@@ -66,7 +66,7 @@
         android:layout_below="@+id/lblCity"
         android:layout_marginTop="23dp"
         android:layout_toEndOf="@+id/section_label"
-        android:text="Postal Code" />
+        android:text="@string/postal_code" />
 
     <TextView
         android:id="@+id/lblPhone"
@@ -75,6 +75,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/tabName"
         android:layout_marginEnd="78dp"
-        android:text="Phone" />
+        android:text="@string/phone" />
 
 </RelativeLayout>
