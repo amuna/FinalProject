@@ -16,9 +16,27 @@ public class Barber {
     private String email;
     private String postalCode;
     private String phone;
+    private String reviews;
+    private int numRating;
+
+    public String getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(String reviews) {
+        this.reviews = reviews;
+    }
+
+    public int getNumRating() {
+        return numRating;
+    }
+
+    public void setNumRating(int numRating) {
+        this.numRating = numRating;
+    }
 
     public Barber(String _name, String _email, String _address, String _city, String _storeName,
-                  String _description, String _postalCode, String _phone) {
+                  String _description, String _postalCode, String _phone, int _numRating, String _reviews) {
         this.name = _name;
         this.email = _email;
         this.address = _address;
@@ -28,6 +46,8 @@ public class Barber {
         this.postalCode = _postalCode;
         this.rating = 0;
         this.phone = _phone;
+        this.numRating = _numRating;
+        this.reviews = _reviews;
     }
 
     public String getPostalCode() {

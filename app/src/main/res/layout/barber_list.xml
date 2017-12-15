@@ -34,7 +34,7 @@
         android:text="Name" />
 
     <TextView
-        android:id="@+id/lblStoreName"
+        android:id="@+id/fldPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -48,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_below="@+id/lblStoreName"
-        android:layout_alignStart="@+id/lblStoreName" />
+        android:layout_below="@+id/fldPhone"
+        android:layout_alignStart="@+id/fldPhone" />
 
     <TextView
         android:id="@+id/lblCity"
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lblCity"
         android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/lblStoreName"
+        android:layout_toEndOf="@+id/fldPhone"
         android:text="TextView"
         android:visibility="gone"/>
 

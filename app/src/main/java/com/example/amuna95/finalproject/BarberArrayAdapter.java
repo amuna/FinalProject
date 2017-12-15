@@ -45,7 +45,7 @@ public class BarberArrayAdapter extends ArrayAdapter<Barber> {
         TextView lblAddress = (TextView)reusableView.findViewById(R.id.lblAddress);
         lblAddress.setText(barber.getAddress());
 
-        TextView lblStoreName = (TextView)reusableView.findViewById(R.id.lblStoreName);
+        TextView lblStoreName = (TextView)reusableView.findViewById(R.id.fldPhone);
         lblStoreName.setText(barber.getStoreName());
 
         TextView lblCity = (TextView)reusableView.findViewById(R.id.lblCity);

@@ -26,7 +26,8 @@ import java.util.Arrays;
 public class BarberProfile extends AppCompatActivity {
 
     private String barberEmail;
-    BarberDBHelper helper = new BarberDBHelper(this);
+    private BarberDBHelper helper = new BarberDBHelper(this);
+    private Barber barber;
 
     private String getEmail() {
         Intent intent = getIntent();
@@ -35,7 +36,7 @@ public class BarberProfile extends AppCompatActivity {
     }
 
     private String[] getData(String email) {
-        Barber barber = helper.getBarber(email);
+        //Barber barber = helper.getBarber(email);
         String[] data = {barber.getEmail(), barber.getName(), barber.getAddress(),
                 barber.getCity(), barber.getStoreName(), barber.getDescription(), barber.getPostalCode(),
                 barber.getPhone()};
@@ -84,7 +85,7 @@ public class BarberProfile extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
+        barber = helper.getBarber(getEmail());
         barberEmail = getEmail();
 
     }
@@ -121,7 +122,7 @@ public class BarberProfile extends AppCompatActivity {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-        private String[] tabTitles = new String[]{"About", "Gallery", "Review"};
+        private String[] tabTitles = new String[]{"About", "Review"};
 
         @Override
         public Fragment getItem(int position) {
@@ -133,11 +134,14 @@ public class BarberProfile extends AppCompatActivity {
                     tab1.setArguments(args);
                     return tab1;
                 case 1:
-                    BarberGallery tab2 = new BarberGallery();
+                    BarberReview tab2 = new BarberReview();
+                    Bundle arg = new Bundle();
+                    arg.putString("EMAIL", getEmail());
+                    arg.putFloat("RATING", barber.getRating());
+                    arg.putFloat("RATINGNUM", barber.getNumRating());
+                    arg.putString("REVIEW", barber.getReviews());
+                    tab2.setArguments(arg);
                     return tab2;
-                case 2:
-                    BarberReview tab3 = new BarberReview();
-                    return tab3;
             }
             return null;
         }
@@ -146,7 +150,7 @@ public class BarberProfile extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
 

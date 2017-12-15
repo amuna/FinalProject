@@ -55,9 +55,14 @@ public class MainActivity extends AppCompatActivity {
         inflater = getMenuInflater();
         dynMenu = R.menu.menu;
 
+        /*
+        * if user is already logged in
+        * dynMenu = R.menu.logout_menu
+        * */
+
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
-        helper.sampleBarbers();
+        //helper.sampleBarbers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -79,22 +84,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //**********Ahmed***********
-        //**********Paljor***********
-        if(helper.getLoginStatus()){
-            //  User logged in
-            dynMenu = R.menu.logout_menu;
-        }
 
-        //**********Paljor***********
 
         //**********Ethan***********
         //Your code here
         //**********Ethan***********
 
 
-/*
+
         //**********Pranav***********
         //when profile button is pressed activity changes to userprofile
+        /*
         final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
         Button bt;
         bt = (Button)findViewById(R.id.profilebtn);
@@ -102,23 +102,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pushSoundMP.start();
+                //Intent i = new Intent(MainActivity.this, BarberProfileMenu.class);
                 Intent i = new Intent(MainActivity.this, UserProfile.class);
                 startActivity(i);
             }
         });
+        */
 
         //**********Pranav***********
-        */
+
     }
     @Override
     protected void onStart() {
         super.onStart();
-        if(helper.getLoginStatus()){
-            //  User logged in
-            Toast.makeText(this,"Logged in", Toast.LENGTH_SHORT).show();
-            dynMenu = R.menu.logout_menu;
-        }
-        Toast.makeText(this,"Logged out", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -159,10 +155,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.logOut:
 
                 break;
+
             case R.id.profile:
                 Intent i = new Intent(MainActivity.this, UserProfile.class);
                 startActivity(i);
                 break;
+
             default:
 
         }

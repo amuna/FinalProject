@@ -3,8 +3,8 @@
     package="com.example.amuna95.finalproject">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,8 +25,10 @@
             android:name=".BarberProfile"
             android:label="@string/title_activity_barber_profile" />
         <activity android:name=".SigninActivity" />
-        <activity android:name=".SignupActivity"/>
-        <activity android:name=".UserProfile"/>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".BarberProfileEdit"></activity>
+        <activity android:name=".BarberProfileMenu"></activity>
     </application>
 
 </manifest>
