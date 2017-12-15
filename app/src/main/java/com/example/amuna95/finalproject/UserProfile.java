@@ -48,6 +48,7 @@ import java.util.Locale;
         // paljor
         private MenuInflater inflater;
         private int dynMenu;
+        // paljor
 
         public double latitude = 44.0017;
         public double longitude = -78.9175;
@@ -63,11 +64,23 @@ import java.util.Locale;
             dynMenu = R.menu.barberprofilemenu;
             helper = new BarberDBHelper(this);
 
-            final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
-            /*
+
+           final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
+
             Button bt;
-            bt = (Button)findViewById(R.id.homebtn);
+            bt = (Button)findViewById(R.id.editbtn);
             bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    pushSoundMP.start();
+                    Intent i = new Intent(UserProfile.this, UserProfileEdit.class);
+                    startActivity(i);
+                }
+            });
+
+            Button bt2;
+            bt2 = (Button)findViewById(R.id.savebtn);
+            bt2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     pushSoundMP.start();
@@ -75,7 +88,7 @@ import java.util.Locale;
                     startActivity(i);
                 }
             });
-            */
+
 
 
             locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -101,6 +114,7 @@ import java.util.Locale;
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
+
             switch (item.getItemId()){
                 case R.id.home:
                     finish();

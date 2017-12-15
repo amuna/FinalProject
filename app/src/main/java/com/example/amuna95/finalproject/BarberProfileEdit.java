@@ -92,7 +92,7 @@ public class BarberProfileEdit extends AppCompatActivity {
         if (noInputError) {
             Barber barber = new Barber(name, email, address, city, storeName, description, postalCode,
                     phone, 0, "");
-            //helper.updateBarber(barber);
+            helper.updateBarber(barber);
             Toast.makeText(this, "Profile has been updated.",Toast.LENGTH_SHORT).show();
             finish();
         }

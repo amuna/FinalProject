@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/savebtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="16dp"
+        android:text="SAVE" />
+
+    <TextView
+        android:id="@+id/fnamelbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="40dp"
+        android:text="First Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/fnametxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fnamelbl"
+        android:layout_below="@+id/fnamelbl"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="John"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/lnamelbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/fnametxt"
+        android:layout_below="@+id/fnametxt"
+        android:layout_marginTop="44dp"
+        android:text="Last Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/lnametxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lnamelbl"
+        android:layout_below="@+id/lnamelbl"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="Smith"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/pclbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lnametxt"
+        android:layout_below="@+id/lnametxt"
+        android:layout_marginTop="34dp"
+        android:text="Postal Code"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <EditText
+        android:id="@+id/pctxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/pclbl"
+        android:layout_below="@+id/pclbl"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="L8T 2X3"
+        android:inputType="textPersonName" />
+</RelativeLayout>

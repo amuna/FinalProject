@@ -27,7 +27,7 @@
         <activity android:name=".SigninActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".UserProfile" />
-        <activity android:name=".UpdateReview"/>
+        <activity android:name=".UserProfileEdit"/>
         <activity android:name=".BarberProfileEdit"></activity>
         <activity android:name=".BarberProfileMenu"></activity>
     </application>

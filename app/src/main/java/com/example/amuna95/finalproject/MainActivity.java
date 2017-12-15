@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
- //      helper.sampleBarbers();
-//        helper.sampleUsers();
+ //       helper.sampleBarbers();
+        helper.sampleUsers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
