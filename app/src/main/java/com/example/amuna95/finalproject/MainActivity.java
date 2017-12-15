@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, BarberProfile.class);
                 Barber barber = (Barber)adapter.getItem(i);
                 String email = barber.getEmail();
-                //String email = ((TextView)findViewById(R.id.lblStoreName)).getText().toString();
                 Log.i("EMAILEMAIL:", email);
                 intent.putExtra("EMAIL", email);
                 startActivity(intent);
@@ -158,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(signupIntent);
                 break;
             case R.id.logOut:
+
                 if(helper.logout()){
                     finish();
                     Intent toSignin = new Intent(this, SigninActivity.class);
