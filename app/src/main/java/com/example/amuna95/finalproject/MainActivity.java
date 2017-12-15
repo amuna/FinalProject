@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
  //       helper.sampleBarbers();
-        helper.sampleUsers();
+//        helper.sampleUsers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -119,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         if(helper.getLoginStatus()){
             dynMenu = R.menu.logout_menu;
         }
+        updateContactList();
     }
 
     @Override
@@ -130,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
 
     //**********Ahmed***********
     public void updateContactList() {
-        /*
-        barberList = BarberDBHelper.getAllBarbers();
+
+        barberList = helper.getAllBarbers();
         adapter = new BarberArrayAdapter(this, barberList);
         listView.setAdapter(adapter);
-        */
+
     }
     //**********Ahmed***********
 
@@ -171,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent toProfile;
                 if(user == 0){
                     toProfile = new Intent(MainActivity.this, BarberProfileMenu.class);
+
+                    toProfile.putExtra("EMAIL", helper.getEMAIL());
                     startActivity(toProfile);
                 }
                 else if(user == 1){

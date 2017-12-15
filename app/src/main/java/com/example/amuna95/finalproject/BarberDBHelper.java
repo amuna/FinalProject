@@ -86,7 +86,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
                                String postalCode,
                                String phone) {
         // create a new entity object (Product)
-        Barber barber = new Barber(name, email, address, city, storeName, description, postalCode, phone,0,"");
+        Barber barber = new Barber(name, email, address, city, storeName, description, postalCode, phone);
         //Log.i("PRICE1", String.valueOf(price));
 
         // put that data into the database
@@ -190,8 +190,8 @@ public class BarberDBHelper extends SQLiteOpenHelper {
             String storeName = cursor.getString(6);
             String phone = cursor.getString(7);
 
-            barber = new Barber(name, email, address, city, storeName, description, postalCode, phone,0,"");
-            barber.setRating(rating);
+            barber = new Barber(name, email, address, city, storeName, description, postalCode, phone);
+            //barber.setRating(rating);
             //contact.setId(id);
         }
 
@@ -251,7 +251,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
                 String storeName = cursor.getString(7);
                 String phone = cursor.getString(8);
 
-                Barber barber = new Barber(name, email, address, city, storeName, description, postalCode, phone,0,"");
+                Barber barber = new Barber(name, email, address, city, storeName, description, postalCode, phone);
                 barber.setRating(rating);
 
                 barbers.add(barber);
@@ -326,6 +326,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         //  Current logged in user
         //  0 = barber
         //  1 = user
+
     public int getCurrentUser(){
         if(getLoginStatus()){
             return currentUser;

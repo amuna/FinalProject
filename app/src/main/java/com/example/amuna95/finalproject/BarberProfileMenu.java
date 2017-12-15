@@ -21,7 +21,7 @@ public class BarberProfileMenu extends AppCompatActivity {
     private TextView lblPhone;
 
     private BarberDBHelper helper;
-    private String email = "anaeem@gmail.com";
+    private String email;
     private MenuInflater inflater;
     private int dynMenu;
 
@@ -42,6 +42,7 @@ public class BarberProfileMenu extends AppCompatActivity {
         super.onStart();
 
         helper = new BarberDBHelper(this);
+        email = helper.getEMAIL();
         Barber b = helper.getBarber(email);
 
         lblName = (TextView) findViewById(R.id.tabName);

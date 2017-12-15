@@ -47,7 +47,7 @@ public class Barber {
     }
 
     public Barber(String _name, String _email, String _address, String _city, String _storeName,
-                  String _description, String _postalCode, String _phone, int _numRating, String _reviews) {
+                  String _description, String _postalCode, String _phone) {
         this.name = _name;
         this.email = _email;
         this.address = _address;
@@ -57,8 +57,6 @@ public class Barber {
         this.postalCode = _postalCode;
         this.rating = 0;
         this.phone = _phone;
-        this.numRating = _numRating;
-        this.reviews = _reviews;
         this.totalRating = 0;
     }
 
@@ -143,15 +141,10 @@ public class Barber {
     }
 
     public void updateRating(float _rating) {
-        Log.i("RATING:TotalR", String.valueOf(totalRating));
-        Log.i("RATING:NumR", String.valueOf(numRating));
-        Log.i("RATING:R", String.valueOf(rating));
+
         totalRating += _rating;
         numRating++;
         rating = totalRating/numRating;
-        Log.i("RATING:TotalR2", String.valueOf(totalRating));
-        Log.i("RATING:NumR2", String.valueOf(numRating));
-        Log.i("RATING:R2", String.valueOf(rating));
     }
 
 }

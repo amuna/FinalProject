@@ -21,6 +21,7 @@ public class BarberReview extends Fragment{
     private int RATING_BAR_UPDATE = 1;
     private BarberDBHelper helper;
     private boolean rateonce;
+    private int i = 0;
 
     private RatingBar rb;
     @Override
@@ -37,36 +38,20 @@ public class BarberReview extends Fragment{
         rb.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                if (!rateonce) {
-                    rateonce = true;
-
-                    float rating2 = rb.getRating();
-                    Log.i("RATING1", String.valueOf(rating2));
-
+                    i++;
+                    Log.i("RATING6", String.valueOf(rating));
                     Barber b = helper.getBarber(email);
-                    b.setNumRating(0);
-                    b.updateRating(rating2);
+                    b.setRating(rating/i);
                     helper.updateBarber(b);
                     Toast.makeText(getContext(), "Rating updated.", Toast.LENGTH_SHORT).show();
-                    b = helper.getBarber(email);
 
-                    rb.setRating(b.getRating());
-                    //startActivityForResult(i, RATING_BAR_UPDATE);
+                    //b = helper.getBarber(email);
 
-                    String rateValue = String.valueOf(rb.getRating());
-                    Log.i("RATING4", rateValue);
-                }
+                   // rb.setRating(b.getRating());
+
             }
         });
 
-        setRating();
         return rootView;
-    }
-
-    public void setRating() {
-        Float rating = getArguments().getFloat("RATING");
-        Float numRating = getArguments().getFloat("RATINGNUM");
-        String reviews = getArguments().getString("REVIEWS");
-        rb.setRating(rating);
     }
 }
