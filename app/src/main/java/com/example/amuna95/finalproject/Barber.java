@@ -1,5 +1,7 @@
 package com.example.amuna95.finalproject;
 
+import android.util.Log;
+
 /**
  * Created by amuna95 on 12/12/2017.
  */
@@ -18,6 +20,15 @@ public class Barber {
     private String phone;
     private String reviews;
     private int numRating;
+    private float totalRating;
+
+    public float getTotalRating() {
+        return totalRating;
+    }
+
+    public void setTotalRating(float totalRating) {
+        this.totalRating = totalRating;
+    }
 
     public String getReviews() {
         return reviews;
@@ -48,6 +59,7 @@ public class Barber {
         this.phone = _phone;
         this.numRating = _numRating;
         this.reviews = _reviews;
+        this.totalRating = 0;
     }
 
     public String getPostalCode() {
@@ -128,6 +140,18 @@ public class Barber {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    public void updateRating(float _rating) {
+        Log.i("RATING:TotalR", String.valueOf(totalRating));
+        Log.i("RATING:NumR", String.valueOf(numRating));
+        Log.i("RATING:R", String.valueOf(rating));
+        totalRating += _rating;
+        numRating++;
+        rating = totalRating/numRating;
+        Log.i("RATING:TotalR2", String.valueOf(totalRating));
+        Log.i("RATING:NumR2", String.valueOf(numRating));
+        Log.i("RATING:R2", String.valueOf(rating));
     }
 
 }

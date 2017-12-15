@@ -19,7 +19,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/section_label"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:id="@+id/btnRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar2"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:onClick="onClickUpdateRating"/>
+        android:text="Rate?"
+        android:onClick="onClickRate"/>
 
 </RelativeLayout>

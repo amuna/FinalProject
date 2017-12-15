@@ -24,7 +24,7 @@ import java.util.List;
 
 public class BarberDBHelper extends SQLiteOpenHelper {
     private static boolean loginStatus = false;
-    static final int DATABASE_VERSION = 4;
+    static final int DATABASE_VERSION = 8;
     static final String TABLE = "Person";
     static final String CREATE_STATEMENT = "CREATE TABLE Person(\n" +
             " email varchar(100) primary key,\n" +
@@ -37,6 +37,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
             " address varchar(100),\n" +
             " numRating int,\n" +
             " rating float,\n" +
+            " totalRating float,\n" +
             " reviews varchar(1000),\n" +
             " storeName varchar(100),\n" +
             " description varchar(300),\n" +
@@ -105,6 +106,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         newValues.put("phone", phone);
         newValues.put("storeName", storeName);
         newValues.put("postalCode", postalCode);
+        newValues.put("totalRating", 0);
         //newValues.put("price", String.valueOf(price));
 
         long id = db.insert(TABLE, null, newValues);
@@ -212,12 +214,13 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         newValues.put("phone", barber.getPhone());
         newValues.put("storeName", barber.getStoreName());
         newValues.put("postalCode", barber.getPostalCode());
+        newValues.put("totalRating", barber.getTotalRating());
+        newValues.put("numRating", barber.getNumRating());
 
         int numRows = db.update(TABLE, newValues, "email = ?", new String[] { "" + barber.getEmail() });
 
         Log.i("UPDATE", "YAMONNNN");
         return (numRows == 1);
-
     }
 
     public ArrayList<Barber> getAllBarbers() {
