@@ -4,6 +4,7 @@ import android.content.Intent;
 import  android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
@@ -22,6 +23,16 @@ public class BarberReview extends Fragment{
 
         View rootView = inflater.inflate(R.layout.barber_review, container, false);
         rb = (RatingBar) rootView.findViewById(R.id.ratingBar2);
+        rb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+
+                }
+                return true;
+            }
+        });
+
         setRating();
         return rootView;
     }
