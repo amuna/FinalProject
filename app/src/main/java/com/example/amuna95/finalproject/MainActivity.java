@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.amuna95.finalproject.R.id.parent;
+import static com.example.amuna95.finalproject.R.id.start;
 import static com.example.amuna95.finalproject.R.styleable.Toolbar;
 import static com.example.amuna95.finalproject.R.styleable.View;
 
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
-        //helper.sampleBarbers();
+ //       helper.sampleBarbers();
+//        helper.sampleUsers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -114,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(helper.getLoginStatus()){
+            dynMenu = R.menu.logout_menu;
+        }
     }
 
     @Override
@@ -162,8 +167,20 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.profile:
-                Intent i = new Intent(MainActivity.this, UserProfile.class);
-                startActivity(i);
+                int user = helper.getCurrentUser();
+                Intent toProfile;
+                if(user == 0){
+                    toProfile = new Intent(MainActivity.this, BarberProfileMenu.class);
+                    startActivity(toProfile);
+                }
+                else if(user == 1){
+                    System.out.println("It's User");
+                    toProfile = new Intent(this, UserProfile.class);
+                    startActivity(toProfile);
+                }
+                else
+                    Toast.makeText(this,"Invalid User", Toast.LENGTH_SHORT).show();
+
                 break;
 
             default:

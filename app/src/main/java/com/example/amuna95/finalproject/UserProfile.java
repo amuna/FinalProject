@@ -20,7 +20,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,9 +41,13 @@ import java.util.Locale;
         EditText editText;
         Geocoder geocoder;
         List<Address> addresses;
-
+        BarberDBHelper helper;
         static final int REQUEST_LOCATION = 1;
         LocationManager locationManager;
+
+        // paljor
+        private MenuInflater inflater;
+        private int dynMenu;
 
         public double latitude = 44.0017;
         public double longitude = -78.9175;
@@ -49,8 +57,14 @@ import java.util.Locale;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_user_profile);
             setupGeolocation();
+            Toolbar myActionbar = (Toolbar) findViewById(R.id.action_bar);
+            setSupportActionBar(myActionbar);
+            inflater = getMenuInflater();
+            dynMenu = R.menu.barberprofilemenu;
+            helper = new BarberDBHelper(this);
 
             final MediaPlayer pushSoundMP  = MediaPlayer.create(this, R.raw.tiny_button_push);
+            /*
             Button bt;
             bt = (Button)findViewById(R.id.homebtn);
             bt.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +75,7 @@ import java.util.Locale;
                     startActivity(i);
                 }
             });
+            */
 
 
             locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -78,7 +93,35 @@ import java.util.Locale;
             }
         }
 
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            inflater.inflate(dynMenu, menu);
+            return super.onCreateOptionsMenu(menu);
+        }
 
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.home:
+                    finish();
+                    Intent toHome = new Intent(this, MainActivity.class);
+                    startActivity(toHome);
+                    break;
+
+                case R.id.logOut:
+                    if(helper.logout()){
+                        finish();
+                        Intent toSignin = new Intent(this, SigninActivity.class);
+                        startActivity(toSignin);
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        }
 
 
         private void setupGeolocation() {

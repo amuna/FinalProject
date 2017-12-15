@@ -70,6 +70,7 @@
         android:layout_below="@+id/loginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        android:text="Already Registered? Sign in here" />
+        android:text="Already Registered? Sign in here"
+        android:onClick="register"/>
 
 </RelativeLayout>

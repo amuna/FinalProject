@@ -102,4 +102,10 @@ public class SigninActivity extends AppCompatActivity {
         }
 
     }
+
+    public void register(View view) {
+        finish();
+        Intent toSignup = new Intent(this, SignupActivity.class);
+        startActivity(toSignup);
+    }
 }
