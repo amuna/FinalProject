@@ -135,7 +135,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 */
                 if(b == null && u == null){
-                    signUpIntent = new Intent(this,BarberProfile.class);
+                    signUpIntent = new Intent(this,BarberProfileEdit.class);
                     signUpIntent.putExtra("newUser", reg);
                     Toast.makeText(this,"Barber", Toast.LENGTH_SHORT).show();
                     startActivity(signUpIntent);
@@ -144,7 +144,17 @@ public class SignupActivity extends AppCompatActivity {
                 break;
             case "Customer":
                 progressDialog.dismiss();
-                ArrayList<String> customers = helper.getBarbers();
+                Barber b2 = helper.getBarber(userEmail);
+                User u2 = helper.getUser(userEmail);
+
+                if(b2 == null && u2 == null){
+                    signUpIntent = new Intent(this,UserProfile.class);
+                    signUpIntent.putExtra("newUser", reg);
+                    Toast.makeText(this,"Barber", Toast.LENGTH_SHORT).show();
+                    startActivity(signUpIntent);
+                }
+                /*
+                ArrayList<String> customers = helper.getCustomers();
                 for(int i = 0; i<customers.size();i++){
                     if(userEmail.equals(customers.get(i))){
                         Toast.makeText(this,"User already Registered", Toast.LENGTH_SHORT).show();
@@ -155,6 +165,7 @@ public class SignupActivity extends AppCompatActivity {
                 signUpIntent.putExtra("newUser", reg);
                 Toast.makeText(this,"Customer", Toast.LENGTH_SHORT).show();
                 startActivity(signUpIntent);
+                */
                 break;
             default:
                 Toast.makeText(this,"Never Caught", Toast.LENGTH_SHORT).show();
