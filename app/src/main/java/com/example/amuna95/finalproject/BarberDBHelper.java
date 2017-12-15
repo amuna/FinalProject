@@ -335,6 +335,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
     public boolean logout(){
         if(getLoginStatus()){
             setLoginStatus(false);
+            EMAIL = null;
             return true;
         }
         return false;
