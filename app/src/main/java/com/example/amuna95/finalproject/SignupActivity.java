@@ -47,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.login_menu, menu);
+        inflater.inflate(R.menu.signupmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
