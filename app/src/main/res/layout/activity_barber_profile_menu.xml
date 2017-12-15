@@ -2,11 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="com.example.amuna95.finalproject.BarberProfileMenu">
+    <!--
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.amuna95.finalproject.BarberProfileMenu">
+    -->
+
+    <include
+        layout="@layout/action_bar"
+        android:id="@+id/action_bar">
+    </include>
 
     <TextView
         android:id="@+id/section_label"
@@ -17,74 +24,73 @@
         android:id="@+id/tabName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/section_label"
-        android:layout_marginTop="18dp"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="28dp"
+        android:layout_toEndOf="@+id/section_label"
         android:text="Name" />
 
     <TextView
         android:id="@+id/tabDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignStart="@+id/tabName"
         android:layout_below="@+id/tabName"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="24dp"
         android:text="Description" />
 
     <TextView
         android:id="@+id/lblStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignStart="@+id/tabDescription"
         android:layout_below="@+id/tabDescription"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="17dp"
         android:text="Store Name" />
 
     <TextView
         android:id="@+id/lblAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lblStore"
         android:layout_below="@+id/lblStore"
-        android:layout_marginTop="19dp"
-        android:layout_toEndOf="@+id/section_label"
+        android:layout_marginTop="16dp"
         android:text="Address" />
-
-    <TextView
-        android:id="@+id/lblCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblAddress"
-        android:layout_marginTop="19dp"
-        android:layout_toEndOf="@+id/section_label"
-        android:text="City" />
-
-    <TextView
-        android:id="@+id/lblPostalCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblCity"
-        android:layout_marginTop="23dp"
-        android:layout_toEndOf="@+id/section_label"
-        android:text="Postal Code" />
 
     <TextView
         android:id="@+id/lblPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/tabName"
-        android:layout_marginEnd="78dp"
+        android:layout_alignStart="@+id/lblAddress"
+        android:layout_below="@+id/lblAddress"
+        android:layout_marginTop="20dp"
         android:text="Phone" />
 
     <Button
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblPostalCode"
-        android:layout_marginTop="31dp"
-        android:layout_toEndOf="@+id/section_label"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
         android:onClick="onClickEditBarber"
         android:text="Edit" />
+
+    <TextView
+        android:id="@+id/lblCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lblPhone"
+        android:layout_centerVertical="true"
+        android:text="City" />
+
+    <TextView
+        android:id="@+id/lblPostalCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lblCity"
+        android:layout_below="@+id/lblCity"
+        android:layout_marginTop="24dp"
+        android:text="Postal Code" />
 
 </RelativeLayout>
