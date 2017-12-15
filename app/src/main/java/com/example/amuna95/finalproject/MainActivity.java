@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        inflater.inflate(R.menu.login_menu, menu);
+        inflater.inflate(dynMenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -140,7 +140,8 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.SignUp:
-
+                Intent signupIntent = new Intent(this, SignupActivity.class);
+                startActivity(signupIntent);
                 break;
             case R.id.logOut:
 

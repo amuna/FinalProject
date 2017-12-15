@@ -11,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class SigninActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class SigninActivity extends AppCompatActivity {
 
         emailID = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
+
     }
 
     @Override

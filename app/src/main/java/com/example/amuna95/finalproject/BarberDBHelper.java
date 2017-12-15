@@ -39,6 +39,10 @@ public class BarberDBHelper extends SQLiteOpenHelper {
             " description varchar(300),\n" +
             " phone varchar(11),\n" +
             " price decimal(5,2));\n";
+    static final String USER_TABLE = "CREATE TABLE USER(\n" +
+            "email varchar(100) primary key, \n" +
+            "usertype INTEGER DEFAULT 0, \n" +
+            "password varchar(100) no null; \n";
 
     public BarberDBHelper(Context context) {
         super(context, "products", null, DATABASE_VERSION);
@@ -46,7 +50,9 @@ public class BarberDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(CREATE_STATEMENT);
+        //db.execSQL(USER_TABLE);
     }
 
     @Override
@@ -219,7 +225,33 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         } while (!cursor.isAfterLast());
         return barbers;
     }
+    public ArrayList<String> getBarbers(){
+        ArrayList<String> barberEmail = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String query = "SELECT email FROM "+TABLE +" WHERE personType = B";
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            do{
+                barberEmail.add(cursor.getString(0));
+            }while (cursor.moveToNext());
+        }
+        return barberEmail;
+    }
+
+    public ArrayList<String> getCustomers(){
+        ArrayList<String> custEmail = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT email FROM "+TABLE +" WHERE personType = U";
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            do{
+                custEmail.add(cursor.getString(0));
+            }while (cursor.moveToNext());
+        }
+        return custEmail;
+    }
     // DELETE
     /*
     public boolean deleteContact(long id) {

@@ -12,8 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -23,6 +27,9 @@ public class SignupActivity extends AppCompatActivity {
     private EditText passwordB;
     private TextView signin;
     private ProgressDialog progressDialog;
+    private RadioGroup radioGroup;
+    private RadioButton userType;
+    private  BarberDBHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,8 @@ public class SignupActivity extends AppCompatActivity {
         passwordA = (EditText)findViewById(R.id.pass1);
         passwordB = (EditText)findViewById(R.id.pass2);
         progressDialog = new ProgressDialog(this);
+        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
+        helper = new BarberDBHelper(this);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,6 +77,16 @@ public class SignupActivity extends AppCompatActivity {
         String userEmail = email.getText().toString().trim();
         String pass1 = passwordA.getText().toString().trim();
         String pass2 = passwordB.getText().toString().trim();
+        int utype = radioGroup.getCheckedRadioButtonId();
+        userType = (RadioButton)findViewById(utype);
+        String usertype = userType.getText().toString().trim();
+
+        if(TextUtils.isEmpty(usertype)){
+            //  radio button is empty
+
+            Toast.makeText(this, "User type unknown", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if(TextUtils.isEmpty(userEmail)){
             //  email is empty
@@ -94,6 +113,47 @@ public class SignupActivity extends AppCompatActivity {
         //  if everything checks out fine
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
+        /*
+        * Write to database
+        * helper.register(email, password, type)
+        * */
+        Intent signUpIntent;
+        String[] reg = {userEmail, pass1, usertype};
+
+        switch (usertype){
+            case "Barber":
+                progressDialog.dismiss();
+                ArrayList<String> barbers = helper.getBarbers();
+                for(int i = 0; i<barbers.size();i++){
+                    if(userEmail.equals(barbers.get(i))){
+                        Toast.makeText(this,"Barber already Registered", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+
+                signUpIntent = new Intent(this,BarberProfile.class);
+                signUpIntent.putExtra("newUser", reg);
+                Toast.makeText(this,"Barber", Toast.LENGTH_SHORT).show();
+                startActivity(signUpIntent);
+                break;
+            case "Customer":
+                progressDialog.dismiss();
+                ArrayList<String> customers = helper.getBarbers();
+                for(int i = 0; i<customers.size();i++){
+                    if(userEmail.equals(customers.get(i))){
+                        Toast.makeText(this,"User already Registered", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+                signUpIntent = new Intent(this,UserProfile.class);
+                signUpIntent.putExtra("newUser", reg);
+                Toast.makeText(this,"Customer", Toast.LENGTH_SHORT).show();
+                startActivity(signUpIntent);
+                break;
+            default:
+                Toast.makeText(this,"Never Caught", Toast.LENGTH_SHORT).show();
+                break;
+        }
         return;
     }
 }
