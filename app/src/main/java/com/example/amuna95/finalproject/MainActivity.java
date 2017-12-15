@@ -157,13 +157,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(signupIntent);
                 break;
             case R.id.logOut:
-          /*
+
                 if(helper.logout()){
                     finish();
                     Intent toSignin = new Intent(this, SigninActivity.class);
                     startActivity(toSignin);
                 }
-*/
+
                 break;
 
             case R.id.profile:

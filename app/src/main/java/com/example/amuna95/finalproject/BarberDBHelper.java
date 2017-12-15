@@ -139,6 +139,32 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         return user;
     }
 
+    public boolean updateBarber(Barber barber) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues newValues = new ContentValues();
+        newValues.put("name", barber.getName());
+        newValues.put("city", barber.getCity());
+        newValues.put("address", barber.getAddress());
+        newValues.put("description", barber.getDescription());
+        newValues.put("rating", barber.getRating());
+        newValues.put("phone", barber.getPhone());
+        newValues.put("storeName", barber.getStoreName());
+        newValues.put("postalCode", barber.getPostalCode());
+        int numRows = db.update(TABLE, newValues, "email = ?", new String[] { "" + barber.getEmail() });
+        return (numRows == 1);
+    }
+
+    public boolean updateUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues newValues = new ContentValues();
+        newValues.put("name", user.getName());
+        newValues.put("postalCode", user.getPostalCode());
+        int numRows = db.update(TABLE, newValues, "email = ?", new String[] { "" + user.getEmail() });
+        return (numRows == 1);
+    }
+
     // READ
     public Barber getBarber(String email) {
         Barber barber = null;
