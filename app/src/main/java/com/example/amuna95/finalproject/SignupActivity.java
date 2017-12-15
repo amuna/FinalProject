@@ -123,6 +123,9 @@ public class SignupActivity extends AppCompatActivity {
         switch (usertype){
             case "Barber":
                 progressDialog.dismiss();
+                Barber b = helper.getBarber(userEmail);
+                User u = helper.getUser(userEmail);
+                /*
                 ArrayList<String> barbers = helper.getBarbers();
                 for(int i = 0; i<barbers.size();i++){
                     if(userEmail.equals(barbers.get(i))){
@@ -130,11 +133,14 @@ public class SignupActivity extends AppCompatActivity {
                         break;
                     }
                 }
-
-                signUpIntent = new Intent(this,BarberProfile.class);
-                signUpIntent.putExtra("newUser", reg);
-                Toast.makeText(this,"Barber", Toast.LENGTH_SHORT).show();
-                startActivity(signUpIntent);
+                */
+                if(b == null && u == null){
+                    signUpIntent = new Intent(this,BarberProfile.class);
+                    signUpIntent.putExtra("newUser", reg);
+                    Toast.makeText(this,"Barber", Toast.LENGTH_SHORT).show();
+                    startActivity(signUpIntent);
+                }
+                Toast.makeText(this,"Barber already Registered", Toast.LENGTH_SHORT).show();
                 break;
             case "Customer":
                 progressDialog.dismiss();

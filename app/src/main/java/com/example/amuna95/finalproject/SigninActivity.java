@@ -90,6 +90,10 @@ public class SigninActivity extends AppCompatActivity {
             //  User log in successful
             Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show();
             flag = true;
+            Intent toHome = new Intent(this, MainActivity.class);
+            startActivity(toHome);
+            progressDialog.dismiss();
+            finish();
         }
         else{
             progressDialog.dismiss();
