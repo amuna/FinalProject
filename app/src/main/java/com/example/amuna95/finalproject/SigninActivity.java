@@ -20,6 +20,7 @@ public class SigninActivity extends AppCompatActivity {
     private EditText emailID;
     private EditText pass;
     private ProgressDialog progressDialog;
+    private BarberDBHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class SigninActivity extends AppCompatActivity {
 
         emailID = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
-
+        helper = new BarberDBHelper(this);
     }
 
     @Override
@@ -84,5 +85,16 @@ public class SigninActivity extends AppCompatActivity {
         }
         progressDialog.setMessage("Signing in...");
         progressDialog.show();
+
+        if(helper.login(userEmail, userPass)){
+            //  User log in successful
+            progressDialog.dismiss();
+            Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            progressDialog.dismiss();
+            Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show();
+            //  login failed
+        }
     }
 }

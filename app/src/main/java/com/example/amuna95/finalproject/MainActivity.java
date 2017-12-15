@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
         * dynMenu = R.menu.logout_menu
         * */
 
+
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
+        helper.sampleBarbers();
         //helper.sampleBarbers();
         barberList = helper.getAllBarbers();
 
@@ -84,7 +86,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //**********Ahmed***********
+        //**********Paljor***********
+        if(helper.getLoginStatus()){
+            //  User logged in
+            dynMenu = R.menu.logout_menu;
+        }
 
+        //**********Paljor***********
 
         //**********Ethan***********
         //Your code here

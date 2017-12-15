@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BarberDBHelper extends SQLiteOpenHelper {
+    private static boolean loginStatus = false;
     static final int DATABASE_VERSION = 3;
     static final String TABLE = "Person";
     static final String CREATE_STATEMENT = "CREATE TABLE Person(\n" +
@@ -105,6 +106,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
 
         return barber;
     }
+
 
     // CREATE
     public User createUser(String name,
@@ -239,6 +241,22 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         return barberEmail;
     }
 
+    public boolean login(String userEmail, String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT email, password from "+TABLE;
+        Cursor cursor =db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                if(userEmail.equals(cursor.getString(0)) && password.equals(cursor.getString(1))){
+                    setLoginStatus(true);
+                    return true;
+                }
+            }while (cursor.moveToNext());
+        }
+        return false;
+    }
+
     public ArrayList<String> getCustomers(){
         ArrayList<String> custEmail = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -251,6 +269,12 @@ public class BarberDBHelper extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
         return custEmail;
+    }
+    private void setLoginStatus(boolean status){
+        loginStatus = status;
+    }
+    public boolean getLoginStatus(){
+        return loginStatus;
     }
     // DELETE
     /*
