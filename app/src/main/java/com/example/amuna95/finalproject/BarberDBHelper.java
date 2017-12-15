@@ -215,7 +215,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
 
         int numRows = db.update(TABLE, newValues, "email = ?", new String[] { "" + barber.getEmail() });
 
-        Log.i("UPDATE", "YAMON");
+        Log.i("UPDATE", "YAMONNNN");
         return (numRows == 1);
 
     }
