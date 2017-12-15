@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
-        helper.sampleBarbers();
+        //helper.sampleBarbers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -74,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, android.view.View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this, BarberProfile.class);
+                Barber barber = (Barber)adapter.getItem(i);
+                String email = barber.getEmail();
+                //String email = ((TextView)findViewById(R.id.lblStoreName)).getText().toString();
+                Log.i("EMAILEMAIL:", email);
+                intent.putExtra("EMAIL", email);
                 startActivity(intent);
             }
         });

@@ -22,10 +22,10 @@
         style="?android:attr/ratingBarStyleSmall"
         android:isIndicator="true"
         android:layout_alignBottom="@+id/lblAddress"
-        android:layout_alignStart="@+id/lblName" />
+        android:layout_alignStart="@+id/tabName" />
 
     <TextView
-        android:id="@+id/lblName"
+        android:id="@+id/tabName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imgBarber"
@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:text="TextView"
-        android:layout_alignBaseline="@+id/lblName"
-        android:layout_alignBottom="@+id/lblName"
+        android:layout_alignBaseline="@+id/tabName"
+        android:layout_alignBottom="@+id/tabName"
         android:layout_toEndOf="@+id/ratingBar" />
 
     <TextView
@@ -58,5 +58,15 @@
         android:text="TextView"
         android:layout_below="@+id/lblAddress"
         android:layout_alignStart="@+id/lblAddress" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lblCity"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/lblStoreName"
+        android:text="TextView"
+        android:visibility="gone"/>
 
 </RelativeLayout>

@@ -2,7 +2,6 @@ package com.example.amuna95.finalproject;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class BarberArrayAdapter extends ArrayAdapter<Barber> {
         RatingBar ratingBar = (RatingBar) reusableView.findViewById(R.id.ratingBar);
         ratingBar.setRating(barber.getRating());
 
-        TextView lblName = (TextView)reusableView.findViewById(R.id.lblName);
+        TextView lblName = (TextView)reusableView.findViewById(R.id.tabName);
         lblName.setText(barber.getName());
 
         TextView lblAddress = (TextView)reusableView.findViewById(R.id.lblAddress);
@@ -51,6 +50,9 @@ public class BarberArrayAdapter extends ArrayAdapter<Barber> {
 
         TextView lblCity = (TextView)reusableView.findViewById(R.id.lblCity);
         lblCity.setText(barber.getCity());
+
+        TextView lblEmail = (TextView)reusableView.findViewById(R.id.lblEmail);
+        lblEmail.setText(barber.getEmail());
 
         return reusableView;
     }

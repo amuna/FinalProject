@@ -145,14 +145,14 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         if (cursor.getCount() >= 1) {
             cursor.moveToFirst();
 
-            String name = cursor.getString(1);
-            float rating = cursor.getFloat(2);
-            String address = cursor.getString(3);
-            String city = cursor.getString(4);
-            String description = cursor.getString(5);
-            String postalCode = cursor.getString(6);
-            String storeName = cursor.getString(7);
-            String phone = cursor.getString(8);
+            String name = cursor.getString(0);
+            float rating = cursor.getFloat(1);
+            String address = cursor.getString(2);
+            String city = cursor.getString(3);
+            String description = cursor.getString(4);
+            String postalCode = cursor.getString(5);
+            String storeName = cursor.getString(6);
+            String phone = cursor.getString(7);
 
             barber = new Barber(name, email, address, city, storeName, description, postalCode, phone);
             barber.setRating(rating);

@@ -1,5 +1,6 @@
 package com.example.amuna95.finalproject;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,28 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class BarberProfile extends AppCompatActivity {
+
+    private String barberEmail;
+    BarberDBHelper helper = new BarberDBHelper(this);
+
+    private String getEmail() {
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("EMAIL");
+        return email;
+    }
+
+    private String[] getData(String email) {
+        Barber barber = helper.getBarber(email);
+        String[] data = {barber.getEmail(), barber.getName(), barber.getAddress(),
+                barber.getCity(), barber.getStoreName(), barber.getDescription(), barber.getPostalCode(),
+                barber.getPhone()};
+        //ArrayList<String> data = new ArrayList<String>(Arrays.asList();
+        return data;
+    }
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -63,6 +85,8 @@ public class BarberProfile extends AppCompatActivity {
             }
         });
 
+        barberEmail = getEmail();
+
     }
 
 
@@ -97,12 +121,16 @@ public class BarberProfile extends AppCompatActivity {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+        private String[] tabTitles = new String[]{"About", "Gallery", "Review"};
 
         @Override
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
                     BarberAbout tab1 = new BarberAbout();
+                    Bundle args = new Bundle();
+                    args.putStringArray("DATA", getData(getEmail()));
+                    tab1.setArguments(args);
                     return tab1;
                 case 1:
                     BarberGallery tab2 = new BarberGallery();
@@ -124,15 +152,16 @@ public class BarberProfile extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
+           return tabTitles[position];
+           /* switch (position) {
                 case 0:
                     return "ABOUT";
                 case 1:
                     return "GALLERY";
                 case 2:
                     return "REVIEW";
-            }
-            return null;
+            }*/
+           // return null;
         }
     }
 }
