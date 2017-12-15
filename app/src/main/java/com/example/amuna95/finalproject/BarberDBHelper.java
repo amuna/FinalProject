@@ -66,6 +66,8 @@ public class BarberDBHelper extends SQLiteOpenHelper {
                 "Ahmed's Store", "The best place to get your cut", "L1L0H1", "647-555-2222");
         createBarber("Emily Rosee", "emiy@emili.com", "blabla", "Ajax", "99 Home Ave",
                 "Top Cuts", "Specializing in women hair", "L2F8G3", "773-333-2222");
+        createBarber("Tsering Paljor", "admin", "admin", "Toronto", "69 Home Ave",
+                "Pro Quts", "All hair needs a good cut. Good cut needs a good barber", "L2F8G3", "773-999-0000");
     }
     public void sampleUsers(){
         createUser("Tsering Paljor", "abc@gmail.com", "abc", "L2F8G3");
