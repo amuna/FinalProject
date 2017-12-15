@@ -289,10 +289,11 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         return loginStatus;
     }
 
+
+    public int getCurrentUser(){
         //  Current logged in user
         //  0 = barber
         //  1 = user
-    public int getCurrentUser(){
         if(getLoginStatus()){
             return currentUser;
         }
