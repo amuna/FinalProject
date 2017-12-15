@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class BarberProfile extends AppCompatActivity {
     private String barberEmail;
     private BarberDBHelper helper = new BarberDBHelper(this);
     private Barber barber;
+    private MenuInflater inflater;
+    private int dynMenu;
 
     private String getEmail() {
         Intent intent = getIntent();
@@ -63,6 +66,10 @@ public class BarberProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barber_profile);
+        Toolbar myActionbar = (Toolbar) findViewById(R.id.action_bar);
+        setSupportActionBar(myActionbar);
+        inflater = getMenuInflater();
+        dynMenu = R.menu.menu;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);
         setSupportActionBar(toolbar);
@@ -74,8 +81,8 @@ public class BarberProfile extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        //TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        //tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +101,16 @@ public class BarberProfile extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.barberprofilemenu, menu);
+        inflater.inflate(R.menu.barberprofilemenu, menu);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(helper.getLoginStatus()){
+            dynMenu = R.menu.logout_menu;
+        }
     }
 
     @Override
