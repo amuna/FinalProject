@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         //**********Ahmed***********
         helper = new BarberDBHelper(this);
-        //helper.sampleBarbers();
+ //       helper.sampleBarbers();
+//        helper.sampleUsers();
         barberList = helper.getAllBarbers();
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -173,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(toProfile);
                 }
                 else if(user == 1){
+                    System.out.println("It's User");
                     toProfile = new Intent(this, UserProfile.class);
                     startActivity(toProfile);
                 }

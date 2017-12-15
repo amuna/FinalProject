@@ -28,7 +28,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
     private static final int BARBER = 0;
     private static final int USER = 1;
     private static final int noUSER = 13;
-    static final int DATABASE_VERSION = 3;
+    static final int DATABASE_VERSION = 33;
     static final String TABLE = "Person";
     static final String CREATE_STATEMENT = "CREATE TABLE Person(\n" +
             " email varchar(100) primary key,\n" +
@@ -44,10 +44,6 @@ public class BarberDBHelper extends SQLiteOpenHelper {
             " description varchar(300),\n" +
             " phone varchar(11),\n" +
             " price decimal(5,2));\n";
-    static final String USER_TABLE = "CREATE TABLE USER(\n" +
-            "email varchar(100) primary key, \n" +
-            "usertype INTEGER DEFAULT 0, \n" +
-            "password varchar(100) no null; \n";
 
     public BarberDBHelper(Context context) {
         super(context, "products", null, DATABASE_VERSION);
@@ -70,6 +66,10 @@ public class BarberDBHelper extends SQLiteOpenHelper {
                 "Ahmed's Store", "The best place to get your cut", "L1L0H1", "647-555-2222");
         createBarber("Emily Rosee", "emiy@emili.com", "blabla", "Ajax", "99 Home Ave",
                 "Top Cuts", "Specializing in women hair", "L2F8G3", "773-333-2222");
+    }
+    public void sampleUsers(){
+        createUser("Tsering Paljor", "abc@gmail.com", "abc", "L2F8G3");
+        createUser("Pranav", "acc@gmail.com", "abc", "L2F8G3");
     }
 
     // CREATE
@@ -128,6 +128,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
         newValues.put("email", email);
         newValues.put("password", password);
         newValues.put("name", name);
+        newValues.put("postalCode", postalCode);
         newValues.put("personType", "U");
 
         long id = db.insert(TABLE, null, newValues);
@@ -252,6 +253,7 @@ public class BarberDBHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
+                System.out.println(cursor.getString(0)+":"+cursor.getString(1)+":"+cursor.getString(2));
                 if(userEmail.equals(cursor.getString(0)) && password.equals(cursor.getString(1))){
                     setLoginStatus(true);
                     if(cursor.getString(2).equals("B")){
