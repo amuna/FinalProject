@@ -38,6 +38,9 @@ import java.util.Locale;
 
     public class UserProfile extends AppCompatActivity {
 
+        private BarberDBHelper DBhelper = new BarberDBHelper(this);
+        private User user;
+
         EditText editText;
         Geocoder geocoder;
         List<Address> addresses;
